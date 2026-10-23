@@ -1,0 +1,144 @@
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-hover: #263449;
+  --border: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --x: #38bdf8;
+  --o: #fb7185;
+  --win: #4ade80;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.game {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  margin: 0 0 0.25rem;
+  font-size: 2.5rem;
+}
+
+.subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.score {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  min-width: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.score-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.score-label.x {
+  color: var(--x);
+}
+
+.score-label.o {
+  color: var(--o);
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.status {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  min-height: 1.5rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: min(80vw, 24rem);
+  margin: 0 auto 1.5rem;
+}
+
+.cell {
+  aspect-ratio: 1;
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cell:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.cell:disabled {
+  cursor: default;
+}
+
+.cell.x {
+  color: var(--x);
+}
+
+.cell.o {
+  color: var(--o);
+}
+
+.cell.winning {
+  background: rgba(74, 222, 128, 0.15);
+  border-color: var(--win);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.actions button {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  background: var(--surface-hover);
+}
